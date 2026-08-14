@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import CardFilme from '../components/CardFilme';
+import CardFilme from '../components/CardCarro';
 import { filmes } from '../data/filmes';
 
 function Home() {
