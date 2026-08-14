@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import CardFilme from '../components/CardCarro';
+import CardFilme from '../components/CardFilme';
 import { filmes } from '../data/filmes';
 
 function Home() {
@@ -13,7 +13,6 @@ function Home() {
         {filmes.map((filme) => (
           <CardFilme 
             key={filme.id} // É obrigatório passar uma prop única chamada 'key' no React quando geramos listas
-            id={filme.id}
             titulo={filme.titulo}
             diretor={filme.diretor}
             ano={filme.ano}
