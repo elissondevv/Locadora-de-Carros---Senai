@@ -1,21 +1,31 @@
-// src/components/CardFilme.jsx
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-// Adicionamos a propriedade 'id' nas props recebidas
-function CardFilme({ id, titulo, diretor, ano, imagem }) {
+function CardCarro({ carro }) {
   return (
-    <div className="card-filme">
-      <img src={imagem} alt={`Capa do filme ${titulo}`} className="card-imagem" />
-      <h3 className="card-titulo">{titulo}</h3>
-      <p className="card-detalhe"><strong>Diretor:</strong> {diretor}</p>
-      <p className="card-detalhe"><strong>Ano:</strong> {ano}</p>
-      
-      {/* Link direcionando para a rota de detalhes usando o id do filme */}
-      <Link to={`/filme/${id}`} className="btn-detalhes">
-        Ver Detalhes
+    <div className="card-carro">
+      <img
+        src={carro.imagem}
+        alt={`${carro.marca} ${carro.modelo}`}
+        className="card-imagem"
+      />
+
+      <h3 className="card-titulo">
+        {carro.marca} {carro.modelo}
+      </h3>
+
+      <p className="card-detalhe">
+        <strong>Ano:</strong> {carro.ano}
+      </p>
+
+      <p className="card-detalhe">
+        <strong>Categoria:</strong> {carro.categoria}
+      </p>
+
+      <Link to={`/carro/${carro.id}`} className="btn-detalhes">
+        Ver detalhes
       </Link>
     </div>
   );
 }
 
-export default CardFilme;
+export default CardCarro;

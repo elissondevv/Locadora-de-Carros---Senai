@@ -1,81 +1,97 @@
-/* src/index.css */
-:root {
-  --bg-color: #121214;
-  --card-bg: #202024;
-  --text-color: #e1e1e6;
-  --primary-color: #8257e5;
-  --primary-hover: #9466ff;
-}
-
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
 }
 
-.card-filme {
-  background-color: var(--card-bg);
-  border-radius: 8px;
-  padding: 16px;
-  width: 250px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out;
-  text-align: left;
+/* Título da página */
+
+.home {
+  padding: 30px;
 }
 
-.card-filme:hover {
-  transform: translateY(-5px);
+.home h1 {
+  text-align: center;
+  margin-bottom: 30px;
 }
+
+/* Lista de carros */
+
+.lista-carros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card */
+
+.card-carro {
+  background-color: #202020;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px #3374ff;
+}
+
+.card-carro:hover {
+  transform: translateY(-3px);
+}
+
+/* Imagem */
 
 .card-imagem {
   width: 100%;
-  height: 350px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 12px;
+  border-radius: 8px;
+ 
 }
+
+/* Nome do carro */
 
 .card-titulo {
-  margin: 0 0 8px 0;
-  font-size: 1.2rem;
+  margin: 15px 0 10px;
+  font-size: 20px;
 }
+
+/* Informações */
 
 .card-detalhe {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  color: #a8a8b3;
+  margin: 5px 0;
+  color: #fcfbfb;
 }
 
-/* Estilo para o link do Card */
+/* Botão */
+
 .btn-detalhes {
   display: block;
-  text-align: center;
-  background-color: var(--primary-color);
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 4px;
   margin-top: 15px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
+  padding: 10px;
+
+  background-color: #1003ff;
+  color: rgb(255, 255, 255);
+
+  text-align: center;
+  text-decoration: none;
+
+  border-radius: 6px;
 }
 
 .btn-detalhes:hover {
-  background-color: var(--primary-hover);
+  background-color: #0059ff;
 }
 
-/* Botão Voltar da tela de Detalhes */
+/* Botão voltar */
+
 .btn-voltar {
-  display: inline-block;
-  color: var(--primary-color);
+  color: #0077ff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.2s;
 }
 
 .btn-voltar:hover {
-  color: var(--primary-hover);
+  text-decoration: underline;
 }

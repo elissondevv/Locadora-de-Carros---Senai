@@ -1,36 +1,30 @@
 import { useEffect, useState } from "react";
 import CardCarro from "../components/CardCarro";
-import { buscarCarros } from "../services/carrosService";
+import { carros } from "../data/carros";
 
 function Home() {
-  const [carros, setCarros] = useState([]);
+  const [carrosLista, setCarrosLista] = useState([]);
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    async function carregarCarros() {
-      try {
-        setLoading(true);
-        setErro(null);
+    try {
+      setLoading(true);
+      setErro(null);
 
-        const dados = await buscarCarros();
-
-        setCarros(dados);
-      } catch (error) {
-        console.error(error);
-        setErro("Não foi possível carregar os carros.");
-      } finally {
-        setLoading(false);
-      }
+      setCarrosLista(carros);
+    } catch (error) {
+      console.error(error);
+      setErro("Não foi possível carregar os carros.");
+    } finally {
+      setLoading(false);
     }
-
-    carregarCarros();
   }, []);
 
   if (loading) {
     return (
       <div className="home">
-        <h1>Carros disponíveis</h1>
+        <h1>Locadora de Carros</h1>
         <p>Carregando carros...</p>
       </div>
     );
@@ -39,7 +33,7 @@ function Home() {
   if (erro) {
     return (
       <div className="home">
-        <h1>Carros disponíveis</h1>
+        <h1>Locadora de Carros</h1>
         <p>{erro}</p>
       </div>
     );
@@ -47,10 +41,10 @@ function Home() {
 
   return (
     <main className="home">
-      <h1>Carros disponíveis</h1>
+      <h1>Locadora de Carros </h1>
 
       <div className="lista-carros">
-        {carros.map((carro) => (
+        {carrosLista.map((carro) => (
           <CardCarro key={carro.id} carro={carro} />
         ))}
       </div>

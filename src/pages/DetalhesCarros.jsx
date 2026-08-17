@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import { buscarCarroPorId } from "../services/carrosService";
+import { carros } from "../data/carros";
 
 function DetalhesCarro() {
   const { id } = useParams();
@@ -23,7 +23,9 @@ function DetalhesCarro() {
           return;
         }
 
-        const carroEncontrado = await buscarCarroPorId(numeroId);
+        const carroEncontrado = carros.find(
+          (carro) => carro.id === numeroId
+        );
 
         if (!carroEncontrado) {
           setErro("Carro não encontrado.");
@@ -57,7 +59,7 @@ function DetalhesCarro() {
       <div style={{ padding: "40px", textAlign: "center" }}>
         <h2>❌ {erro}</h2>
 
-        <Link to="/carros" className="btn-voltar">
+        <Link to="/" className="btn-voltar">
           Voltar para a lista
         </Link>
       </div>
@@ -70,7 +72,7 @@ function DetalhesCarro() {
       <div style={{ padding: "40px", textAlign: "center" }}>
         <h2>❌ Carro não encontrado!</h2>
 
-        <Link to="/carros" className="btn-voltar">
+        <Link to="/" className="btn-voltar">
           Voltar para a lista
         </Link>
       </div>
@@ -85,7 +87,7 @@ function DetalhesCarro() {
         margin: "0 auto",
       }}
     >
-      <Link to="/carros" className="btn-voltar">
+      <Link to="/" className="btn-voltar">
         ← Voltar para a lista
       </Link>
 
@@ -101,7 +103,7 @@ function DetalhesCarro() {
           src={carro.imagem}
           alt={`${carro.marca} ${carro.modelo}`}
           style={{
-            width: "400px",
+            width: "500px",
             maxWidth: "100%",
             borderRadius: "8px",
             objectFit: "cover",
@@ -167,6 +169,9 @@ function DetalhesCarro() {
               border: "none",
               borderRadius: "6px",
               cursor: "pointer",
+              backgroundColor: "#0077ff",
+              color: "#ffffff",
+              fontWeight: "bold",
             }}
           >
             Alugar carro
